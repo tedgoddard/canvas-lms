@@ -467,6 +467,7 @@ module ApplicationHelper
       :logPageViews             => !@body_class_no_headers,
       :maxVisibleEditorButtons  => 3,
       :editorButtons            => editor_buttons,
+      :editorStyleSelect        => '[{"title": "Red header", "block": "h1", "styles": {"color": "#ff0000"}}, {"title": "Box Right", "inline": "span", "classes": "fancyboxright"}]',
       :pandaPubSettings        => CanvasPandaPub::Client.config.try(:slice, 'push_url', 'application_id'),
     }.each do |key,value|
       # dont worry about keys that are nil or false because in javascript: if (INST.featureThatIsUndefined ) { //won't happen }
