@@ -127,6 +127,12 @@ define([
     if(INST && INST.allowMediaComments && (INST.kalturaSettings && !INST.kalturaSettings.hide_rte_button)) {
       instructure_buttons = instructure_buttons + ",instructure_record";
     }
+    if (INST && INST.editorStyleSelect) {
+        instructure_buttons = instructure_buttons + ",styleselect";
+        INST.editorStyleSelect = JSON.parse(INST.editorStyleSelect);
+    } else {
+        INST.editorStyleSelect = "";
+    }
     var equella_button = INST && INST.equellaEnabled ? ",instructure_equella" : "";
     instructure_buttons = instructure_buttons + equella_button;
 
@@ -165,6 +171,7 @@ define([
       theme_advanced_resize_horizontal : false,
       theme_advanced_resizing : true,
       theme_advanced_blockformats : "p,h2,h3,h4,pre",
+      style_formats: INST.editorStyleSelect,
       theme_advanced_more_colors: false,
       extended_valid_elements : "iframe[src|width|height|name|align|style|class|sandbox|allowfullscreen|webkitallowfullscreen|mozallowfullscreen]",
       content_css: "/stylesheets_compiled/legacy_normal_contrast/vendor/instructure_style.css,/stylesheets_compiled/legacy_normal_contrast/vendor/tinymce.editor_box.css",
